@@ -27,7 +27,28 @@
 }
 
 - (void)setTextFieldCount:(NSUInteger)textFieldCount {
-    _textFieldCount = textFieldCount
+    if (textFieldCount == _textFieldCount) {
+        return;
+    }
+    
+    _textFieldCount = textFieldCount;
+    
+    /* add new text fields if count is more than array */
+    if (_textFields.count < _textFieldCount) {
+        NSInteger numberOfFieldsToAdd = _textFieldCount - _textFields.count;
+        for (int i = 0; i < numberOfFieldsToAdd; i++) {
+            UITextField *textField = [[UITextField alloc] init];
+            [_textFields addObject:textField];
+        }
+    }
+    /* else if it is less, remove textfields from the end of the array */
+    else if (_textFields.count > _textFieldCount) {
+        for (int i = 0; i >= _textFieldCount; i--) {
+            UITextField *textField = _textFields.lastObject;
+            [textField removeFromSuperview];
+            [_textFields removeLastObject];
+        }
+    }
 }
 
 @end
