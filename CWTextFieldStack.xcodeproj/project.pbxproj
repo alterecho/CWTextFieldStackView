@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F0E57EC20309FA800104C96 /* CWTextFieldStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E57EB20309FA800104C96 /* CWTextFieldStackView.m */; };
 		5F6C9DE6202D62FC004490E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6C9DE5202D62FC004490E5 /* AppDelegate.m */; };
 		5F6C9DE9202D62FC004490E5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6C9DE8202D62FC004490E5 /* ViewController.m */; };
 		5F6C9DEC202D62FC004490E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6C9DEA202D62FC004490E5 /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F0E57EA20309FA800104C96 /* CWTextFieldStackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CWTextFieldStackView.h; path = Classes/CWTextFieldStackView.h; sourceTree = "<group>"; };
+		5F0E57EB20309FA800104C96 /* CWTextFieldStackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CWTextFieldStackView.m; path = Classes/CWTextFieldStackView.m; sourceTree = "<group>"; };
 		5F6C9DE1202D62FC004490E5 /* CWTextFieldStack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWTextFieldStack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6C9DE4202D62FC004490E5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F6C9DE5202D62FC004490E5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 				5F6C9DE5202D62FC004490E5 /* AppDelegate.m */,
 				5F6C9DE7202D62FC004490E5 /* ViewController.h */,
 				5F6C9DE8202D62FC004490E5 /* ViewController.m */,
+				5F0E57EA20309FA800104C96 /* CWTextFieldStackView.h */,
+				5F0E57EB20309FA800104C96 /* CWTextFieldStackView.m */,
 				5F6C9DEA202D62FC004490E5 /* Main.storyboard */,
 				5F6C9DED202D62FC004490E5 /* Assets.xcassets */,
 				5F6C9DEF202D62FC004490E5 /* LaunchScreen.storyboard */,
@@ -143,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F6C9DE9202D62FC004490E5 /* ViewController.m in Sources */,
+				5F0E57EC20309FA800104C96 /* CWTextFieldStackView.m in Sources */,
 				5F6C9DF4202D62FC004490E5 /* main.m in Sources */,
 				5F6C9DE6202D62FC004490E5 /* AppDelegate.m in Sources */,
 			);
