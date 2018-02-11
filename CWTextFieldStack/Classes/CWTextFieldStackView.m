@@ -23,6 +23,8 @@
 }
 
 - (void)initialize {
+    _textFieldHeight = 0.0f;
+    
     _textFields = [NSMutableArray array];
 }
 
@@ -59,6 +61,11 @@
 - (void)resetFrames {
         // height of each textfield
     CGFloat height = 30.0f;
+    
+    if (_textFieldHeight <= 0) {
+        height = self.frame.size.height / (CGFloat)_textFields.count;
+    }
+    
         // the origin.y of previous text field
     CGFloat lastYPos = -height;
     

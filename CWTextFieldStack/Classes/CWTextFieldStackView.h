@@ -12,4 +12,7 @@
 
 @property (nonatomic) NSUInteger        textFieldCount;
 
+/** Height of each text field in the stack. 0 for auto-set */
+@property (nonatomic) CGFloat           textFieldHeight;
+
 @end
