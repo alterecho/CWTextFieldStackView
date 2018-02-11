@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "CWTextFieldStackView.h"
 
-@interface ViewController ()
+@interface ViewController () {
+    CWTextFieldStackView        *stackView;
+}
 
 @end
 
@@ -17,6 +20,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    stackView = [[CWTextFieldStackView alloc] init];
+    
+    [self.view addSubview:stackView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    stackView.frame = CGRectMake(0.0f, 30.0, 300.0f, 100.0f);
+    stackView.backgroundColor = [UIColor grayColor];
+    stackView.textFieldCount = 2;
 }
 
 

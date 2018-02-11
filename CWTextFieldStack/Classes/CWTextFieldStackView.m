@@ -17,7 +17,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-        
+        [self initialize];
     }
     return self;
 }
@@ -38,6 +38,7 @@
         NSInteger numberOfFieldsToAdd = _textFieldCount - _textFields.count;
         for (NSInteger i = 0; i < numberOfFieldsToAdd; i++) {
             UITextField *textField = [[UITextField alloc] init];
+            textField.backgroundColor = [UIColor colorWithRed:((arc4random() % 255) / 100.0f) green:((arc4random() % 255) / 100.0f) blue:((arc4random() % 255) / 100.0f) alpha:1.0f];
             [self addSubview:textField];
             [_textFields addObject:textField];
         }
@@ -50,6 +51,9 @@
             [_textFields removeLastObject];
         }
     }
+    
+    
+    [self resetFrames];
 }
 
 - (void)resetFrames {
@@ -61,7 +65,7 @@
     // iterate through _textFields and set the frame of each text field
     for (int i = 0; i < _textFields.count; i++) {
         UITextField *textField = _textFields[i];
-        textField.frame = CGRectMake(0.0f, lastYPos + height, self.frame.size.width, self.frame.size.height);
+        textField.frame = CGRectMake(0.0f, lastYPos + height, self.frame.size.width, height);
         lastYPos = textField.frame.origin.y;
     }
 }
