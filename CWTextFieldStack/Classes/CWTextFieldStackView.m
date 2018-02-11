@@ -36,19 +36,39 @@
     /* add new text fields if count is more than array */
     if (_textFields.count < _textFieldCount) {
         NSInteger numberOfFieldsToAdd = _textFieldCount - _textFields.count;
-        for (int i = 0; i < numberOfFieldsToAdd; i++) {
+        for (NSInteger i = 0; i < numberOfFieldsToAdd; i++) {
             UITextField *textField = [[UITextField alloc] init];
+            [self addSubview:textField];
             [_textFields addObject:textField];
         }
     }
     /* else if it is less, remove textfields from the end of the array */
     else if (_textFields.count > _textFieldCount) {
-        for (int i = 0; i >= _textFieldCount; i--) {
+        for (NSInteger i = 0; i >= _textFieldCount; i--) {
             UITextField *textField = _textFields.lastObject;
             [textField removeFromSuperview];
             [_textFields removeLastObject];
         }
     }
+}
+
+- (void)resetFrames {
+        // height of each textfield
+    CGFloat height = 30.0f;
+        // the origin.y of previous text field
+    CGFloat lastYPos = -height;
+    
+    // iterate through _textFields and set the frame of each text field
+    for (int i = 0; i < _textFields.count; i++) {
+        UITextField *textField = _textFields[i];
+        textField.frame = CGRectMake(0.0f, lastYPos + height, self.frame.size.width, self.frame.size.height);
+        lastYPos = textField.frame.origin.y;
+    }
+}
+
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    [self resetFrames];
 }
 
 @end
