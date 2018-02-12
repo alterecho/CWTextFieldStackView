@@ -11,10 +11,11 @@
 IB_DESIGNABLE
 @interface CWTextFieldStackView : UIView
 
-@property (nonatomic) IBInspectable NSUInteger        fieldCount;
+@property (nonatomic) IBInspectable NSUInteger  fieldCount;
 
 /** Height of each text field in the stack. 0 for auto-set */
 
-@property (nonatomic) IBInspectable CGFloat           fieldHeight;
+@property (nonatomic) IBInspectable CGFloat     fieldHeight;
+@property (nonatomic) IBInspectable CGFloat     cornerRadius;
 
 @end

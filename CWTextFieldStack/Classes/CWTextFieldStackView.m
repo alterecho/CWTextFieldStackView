@@ -42,6 +42,9 @@
     _fieldCount = 0.0f;
     
     _textFields = [NSMutableArray array];
+    self.clipsToBounds = YES;
+    
+    self.layer.cornerRadius = _cornerRadius;
 }
 
 - (void)setFieldCount:(NSUInteger)fieldCount {
