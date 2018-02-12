@@ -22,22 +22,38 @@
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if ((self = [super initWithCoder:aDecoder])) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (void)prepareForInterfaceBuilder {
+    [super prepareForInterfaceBuilder];
+    [self initialize];
+    
+#if TARGET_INTERFACE_BUILDER
+    self.backgroundColor = [UIColor lightGrayColor];
+#endif
+}
+
 - (void)initialize {
-    _textFieldHeight = 0.0f;
+    _fieldCount = 0.0f;
     
     _textFields = [NSMutableArray array];
 }
 
-- (void)setTextFieldCount:(NSUInteger)textFieldCount {
-    if (textFieldCount == _textFieldCount) {
+- (void)setFieldCount:(NSUInteger)fieldCount {
+    if (fieldCount == _fieldCount) {
         return;
     }
     
-    _textFieldCount = textFieldCount;
+    _fieldCount = fieldCount;
     
     /* add new text fields if count is more than array */
-    if (_textFields.count < _textFieldCount) {
-        NSInteger numberOfFieldsToAdd = _textFieldCount - _textFields.count;
+    if (_textFields.count < _fieldCount) {
+        NSInteger numberOfFieldsToAdd = _fieldCount - _textFields.count;
         for (NSInteger i = 0; i < numberOfFieldsToAdd; i++) {
             UITextField *textField = [[UITextField alloc] init];
             textField.backgroundColor = [UIColor colorWithRed:((arc4random() % 255) / 100.0f) green:((arc4random() % 255) / 100.0f) blue:((arc4random() % 255) / 100.0f) alpha:1.0f];
@@ -46,8 +62,8 @@
         }
     }
     /* else if it is less, remove textfields from the end of the array */
-    else if (_textFields.count > _textFieldCount) {
-        for (NSInteger i = 0; i >= _textFieldCount; i--) {
+    else if (_textFields.count > _fieldCount) {
+        for (NSInteger i = 0; i >= _fieldCount; i--) {
             UITextField *textField = _textFields.lastObject;
             [textField removeFromSuperview];
             [_textFields removeLastObject];
@@ -62,7 +78,7 @@
         // height of each textfield
     CGFloat height = 30.0f;
     
-    if (_textFieldHeight <= 0) {
+    if (_fieldCount <= 0) {
         height = self.frame.size.height / (CGFloat)_textFields.count;
     }
     

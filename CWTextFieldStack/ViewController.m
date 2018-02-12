@@ -30,7 +30,7 @@
     [super viewWillAppear:animated];
     stackView.frame = CGRectMake(0.0f, 30.0, 300.0f, 100.0f);
     stackView.backgroundColor = [UIColor grayColor];
-    stackView.textFieldCount = 2;
+    stackView.fieldCount = 2;
 }
 
 
