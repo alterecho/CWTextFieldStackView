@@ -66,6 +66,7 @@
             textField.backgroundColor = [UIColor colorWithRed:((arc4random() % 255) / 100.0f) green:((arc4random() % 255) / 100.0f) blue:((arc4random() % 255) / 100.0f) alpha:1.0f];
             [self addSubview:textField];
             [_textFields addObject:textField];
+            [_delegate cwTextFieldStackView:self didAddUITextField:textField];
         }
     }
     /* else if it is less, remove textfields from the end of the array */
@@ -74,6 +75,7 @@
             UITextField *textField = _textFields.lastObject;
             [textField removeFromSuperview];
             [_textFields removeLastObject];
+            [_delegate cwTextFieldStackView:self didRemovedUITextField:textField];
         }
     }
     

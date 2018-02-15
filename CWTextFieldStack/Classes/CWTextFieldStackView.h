@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class CWTextFieldStackView;
+
+@protocol CWTextFieldStackViewDelegate
+/* Called when a UITextField is added */
+- (void)cwTextFieldStackView:(CWTextFieldStackView *)textFieldStackView didAddUITextField:(UITextField *)textField;
+/* Called when a UITextField is removed */
+- (void)cwTextFieldStackView:(CWTextFieldStackView *)textFieldStackView didRemovedUITextField:(UITextField *)textField;
+@end
+
 IB_DESIGNABLE
 @interface CWTextFieldStackView : UIView
 
@@ -20,5 +29,7 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable CGFloat     cornerRadius;
 
 @property (nonatomic, readonly) NSArray<UITextField *>      *textFields;
+
+@property (nonatomic, weak) id<CWTextFieldStackViewDelegate>        delegate;
 
 @end
