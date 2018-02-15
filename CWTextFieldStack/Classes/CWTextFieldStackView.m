@@ -47,6 +47,10 @@
     self.layer.cornerRadius = _cornerRadius;
 }
 
+- (NSArray<UITextField *> *)textFields {
+    return _textFields;
+}
+
 - (void)setFieldCount:(NSUInteger)fieldCount {
     if (fieldCount == _fieldCount) {
         return;
